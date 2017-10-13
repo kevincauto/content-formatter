@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+#container {
+  display: flex;
+}
+#main-form {
+  border: solid #000 1px;
+  float: left;
+  width: 20%;
+  padding: 20px;
+  margin: 0px 20px 0px 20px;
+}
+#text-results {
+  border: solid #000 1px;
+  float: right;
+  width: 80%;
+  padding: 20px;
+  margin: 0px 20px 0px 20px;
+}
+
+#copyHtml {
+  width: 1000px;
+  height: 1000px;
+}
+
+.label{
+
+  margin: 10px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  width:100%;
+  height: 400px
+}
