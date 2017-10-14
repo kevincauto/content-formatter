@@ -22,7 +22,6 @@ body {
 }
 
 .copyHtml {
-
   width: 100%;
 }
 
@@ -52,4 +51,5 @@ input[type=text], select {
 }
 .small-text{
   font-size: 8px;
+  width:100%
 }

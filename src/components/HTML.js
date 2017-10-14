@@ -15,7 +15,7 @@ export default class HTML extends React.Component{
         //get rid of all class="pDIGIT"
         htmlBody = htmlBody.replace(/ class="p\d+"/g, '');
         //add newlines to clean it up
-        htmlBody = htmlBody.replace(/<\/p>/g, '</p>\n\n');
+        htmlBody = htmlBody.replace(/<\/p>/g, '</p>\n');
         //get rid of all spans with class s1, s2..., but keep the inner html
         htmlBody = htmlBody.replace(/<span class="s\d+">/g, '');
         htmlBody = htmlBody.replace(/<\/span>/g, '');
@@ -23,6 +23,12 @@ export default class HTML extends React.Component{
         htmlBody = htmlBody.replace(/<span class="Apple-converted-space">/g, '');
         //give all the paragraphs the proper class
         htmlBody = htmlBody.replace(/<p>/g, '<p class="body">');
+        //make <i> tags <em>
+        htmlBody = htmlBody.replace(/<i>/g, '<em>');
+        htmlBody = htmlBody.replace(/<\/i>/g, '</em>');
+        //make <b> tags <strong>
+        htmlBody = htmlBody.replace(/<b>/g, '<strong>');
+        htmlBody = htmlBody.replace(/<\/b>/g, '</strong>');
 
         let htmlTitle = `<h1 class="headline">${title}</h1>\n\n`;
         let htmlDeck = '';

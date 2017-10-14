@@ -92,10 +92,8 @@ export default class CCEDLiveWebinarForm extends React.Component {
                 className="textarea"
               />
             </div>
-            Test HTML to Paste in:
-            <div className="small-text">
-              {testingHtml}
-            </div>
+            Test HTML to Paste in:<br />
+            <textarea value={testingHtml} readOnly={true} className="small-text"/>
           </div>
           )
       }
