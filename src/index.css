@@ -9,21 +9,21 @@ body {
 #main-form {
   border: solid #000 1px;
   float: left;
-  width: 20%;
+  width: 40%;
   padding: 20px;
   margin: 0px 20px 0px 20px;
 }
 #text-results {
   border: solid #000 1px;
   float: right;
-  width: 80%;
+  width: 60%;
   padding: 20px;
   margin: 0px 20px 0px 20px;
 }
 
-#copyHtml {
-  width: 1000px;
-  height: 1000px;
+.copyHtml {
+
+  width: 100%;
 }
 
 .label{
@@ -41,7 +41,15 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-textarea {
+.textarea {
   width:100%;
-  height: 400px
+  height: 400px;
+}
+.html-textarea {
+  height: 1000px;
+  min-width: 600px;
+
+}
+.small-text{
+  font-size: 8px;
 }
