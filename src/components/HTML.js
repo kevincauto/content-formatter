@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 export default class HTML extends React.Component{
 
   render(){
@@ -35,7 +33,7 @@ export default class HTML extends React.Component{
         let htmlAuthor = '';
         //decks and authors don't exist in every article
         if(deck){htmlDeck = `<p class="deck">${deck}</p>\n\n`}
-        if(author){htmlAuthor = `<p class="body">${author}</body>\n\n`}
+        if(author){htmlAuthor = `<p class="body">${author}</p>\n`}
 
         let html =`${htmlTitle}${htmlDeck}${htmlAuthor}${htmlBody}`
     

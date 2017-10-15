@@ -51,5 +51,6 @@ input[type=text], select {
 }
 .small-text{
   font-size: 8px;
-  width:100%
+  width:100%;
+  min-height: 80px;
 }

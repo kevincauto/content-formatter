@@ -9,7 +9,6 @@ class Container extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected_template: 'cced_live_webinar',
       title: ``,
       deck: ``,
       author: ``,
@@ -41,45 +40,8 @@ class Container extends React.Component {
           info={this.state}
           onTextChange={this.handleTextChange}
         />
-        <TextResults info={this.state} />
+        <HTML info={this.state} />
       </div>
-    );
-  }
-}
-
-// class Form extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.handleTextChange = this.handleTextChange.bind(this);
-//   }
-
-//   handleTextChange(value, name, html) {
-//     this.props.onTextChange(value, name, html);
-//   }
-
-
-//   render() {
-//     let displayForm = <CCEDLiveWebinarForm info={this.props.info} onTextChange={this.handleTextChange}
-//   />
-
-//     return (
-//       <div id="main-form">
-//         <h2>Complete the information below.</h2>
-//         {displayForm}
-//       </div>
-//     );
-//   }
-// }
-
-
-
-class TextResults extends React.Component {
-  render() {
-
-    return (
-        <div>
-        <HTML info={this.props.info} />
-        </div>
     );
   }
 }
