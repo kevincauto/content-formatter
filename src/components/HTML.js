@@ -8,8 +8,14 @@ export default class HTML extends React.Component{
 ;
    
         let htmlBody = body;
-        //focus on the <body> forget the <head>
-        htmlBody = htmlBody.substring(htmlBody.indexOf("<body>")+6,htmlBody.lastIndexOf("</body>"));
+
+        //normally we paste everything and take what's inside the <body> tag.  
+        //If we paste in code between the body tag, this will still work.
+        if(htmlBody.includes('<body>') && htmlBody.includes('</body>')){
+          //focus on the <body> forget the <head>, <html>
+          htmlBody = htmlBody.substring(htmlBody.indexOf("<body>")+6,htmlBody.lastIndexOf("</body>"));
+        }
+
         //get rid of all class="pDIGIT"
         htmlBody = htmlBody.replace(/ class="p\d+"/g, '');
         //add newlines to clean it up
@@ -27,6 +33,8 @@ export default class HTML extends React.Component{
         //make <b> tags <strong>
         htmlBody = htmlBody.replace(/<b>/g, '<strong>');
         htmlBody = htmlBody.replace(/<\/b>/g, '</strong>');
+        //discover h2 tags
+        htmlBody = htmlBody.replace(/<p class="body"><strong>(.+)<\/strong><\/p>/g, '<h2 class="subhead">$1</h2>' )
 
         let htmlTitle = `<h1 class="headline">${title}</h1>\n\n`;
         let htmlDeck = '';
