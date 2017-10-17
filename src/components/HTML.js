@@ -4,8 +4,6 @@ export default class HTML extends React.Component{
   render(){
 
         const {title, deck, author, body} = this.props.info;
-        
-;
    
         let htmlBody = body;
 
