@@ -27,9 +27,24 @@ export default class HTML extends React.Component{
         htmlBody = htmlBody.replace(/<span class="Apple-converted-space">/g, '');
         //give all the paragraphs the proper class
         htmlBody = htmlBody.replace(/<p>/g, '<p class="body">');
+        //make ul tags <p>
+        htmlBody = htmlBody.replace(/<ul class="ul\d+">/g, '<p class="body">');
+        //make ul tags <p>
+        htmlBody = htmlBody.replace(/<ul class="ul\d+">/g, '<p class="body">');
+        //</ul> to </p>
+        htmlBody = htmlBody.replace(/<\/ul>/g, '</p>');
+        //make li tags &bull;
+        htmlBody = htmlBody.replace(/<li class="li\d+">•<span class="Apple-tab-span">/g, '&bull; ');
+        //make </li> to <br />
+        htmlBody = htmlBody.replace(/<\/li>/g, '<br />');
+
         //make <i> tags <em>
         htmlBody = htmlBody.replace(/<i>/g, '<em>');
         htmlBody = htmlBody.replace(/<\/i>/g, '</em>');
+        //make get rid of space before end tags.  Causing a strange symbol.
+        htmlBody = htmlBody.replace(/\s<\//g, '</');
+        //apostrophe glitch single quote 
+        htmlBody = htmlBody.replace(/’/g, '\'');
         //make <b> tags <strong>
         htmlBody = htmlBody.replace(/<b>/g, '<strong>');
         htmlBody = htmlBody.replace(/<\/b>/g, '</strong>');
