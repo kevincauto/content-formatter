@@ -46,6 +46,20 @@ export default class HTML extends React.Component{
         //make <b> tags <strong>
         htmlBody = htmlBody.replace(/<b>/g, '<strong>');
         htmlBody = htmlBody.replace(/<\/b>/g, '</strong>');
+        //remove unnecessary empty paragraph break tag
+        htmlBody = htmlBody.replace(/<p class="body"><br><\/p>/g, '');
+        htmlBody = htmlBody.replace(/<p class="body"><strong><\/strong><br><\/p>/g, '');
+        htmlBody = htmlBody.replace(/<p class="body"><sup><\/sup><br><\/p>/g, '');
+        htmlBody = htmlBody.replace(/<p class="body"><em><\/em><br><\/p>/g, '');
+        //h2 instead of all caps paragraphs
+        htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
+        htmlBody = htmlBody.replace(/<p class="body">ABOUT THE AUTHORS<\/p>/g, '<h2 class="subhead">About the Authors</h2>');
+        htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
+        htmlBody = htmlBody.replace(/<p class="body">ACKNOWLEDGMENT<\/p>/g, '<h2 class="subhead">Acknowledgment</h2>');
+        
+        
+        
+
         //discover h2 tags
         htmlBody = htmlBody.replace(/<p class="body"><strong>(.+)<\/strong><\/p>/g, '<h2 class="subhead">$1</h2>' )
 
