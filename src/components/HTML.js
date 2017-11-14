@@ -50,6 +50,7 @@ export default class HTML extends React.Component{
         htmlBody = htmlBody.replace(/<p class="body"><br><\/p>/g, '');
         htmlBody = htmlBody.replace(/<p class="body"><strong><\/strong><br><\/p>/g, '');
         htmlBody = htmlBody.replace(/<p class="body"><sup><\/sup><br><\/p>/g, '');
+        htmlBody = htmlBody.replace(/<p class="body"><sub><\/sub><br><\/p>/g, '');
         htmlBody = htmlBody.replace(/<p class="body"><em><\/em><br><\/p>/g, '');
         //h2 instead of all caps paragraphs
         htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
