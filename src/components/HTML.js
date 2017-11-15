@@ -35,7 +35,6 @@ export default class HTML extends React.Component{
         htmlBody = htmlBody.replace(/<li class="li\d+">•<span class="Apple-tab-span">/g, '&bull; ');
         //make </li> to <br />
         htmlBody = htmlBody.replace(/<\/li>/g, '<br />');
-
         //make <i> tags <em>
         htmlBody = htmlBody.replace(/<i>/g, '<em>');
         htmlBody = htmlBody.replace(/<\/i>/g, '</em>');
@@ -57,10 +56,6 @@ export default class HTML extends React.Component{
         htmlBody = htmlBody.replace(/<p class="body">ABOUT THE AUTHORS<\/p>/g, '<h2 class="subhead">About the Authors</h2>');
         htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
         htmlBody = htmlBody.replace(/<p class="body">ACKNOWLEDGMENT<\/p>/g, '<h2 class="subhead">Acknowledgment</h2>');
-        
-        
-        
-
         //discover h2 tags
         htmlBody = htmlBody.replace(/<p class="body"><strong>(.+)<\/strong><\/p>/g, '<h2 class="subhead">$1</h2>' )
 
