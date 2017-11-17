@@ -14,7 +14,7 @@ export default class HTML extends React.Component{
           htmlBody = htmlBody.substring(htmlBody.indexOf("<body>")+6,htmlBody.lastIndexOf("</body>"));
         }
 
-        //get rid of all class="pDIGIT"
+        //get rid of all p number classes like class="p5"
         htmlBody = htmlBody.replace(/ class="p\d+"/g, '');
         //add newlines to clean it up
         htmlBody = htmlBody.replace(/<\/p>/g, '</p>\n');
@@ -45,19 +45,28 @@ export default class HTML extends React.Component{
         //make <b> tags <strong>
         htmlBody = htmlBody.replace(/<b>/g, '<strong>');
         htmlBody = htmlBody.replace(/<\/b>/g, '</strong>');
-        //remove unnecessary empty paragraph break tag
+        //remove unnecessary empty paragraph with a break tag
         htmlBody = htmlBody.replace(/<p class="body"><br><\/p>/g, '');
         htmlBody = htmlBody.replace(/<p class="body"><strong><\/strong><br><\/p>/g, '');
         htmlBody = htmlBody.replace(/<p class="body"><sup><\/sup><br><\/p>/g, '');
         htmlBody = htmlBody.replace(/<p class="body"><sub><\/sub><br><\/p>/g, '');
         htmlBody = htmlBody.replace(/<p class="body"><em><\/em><br><\/p>/g, '');
+        htmlBody = htmlBody.replace(/<p class="body"><strong><em><\/em><\/strong><br><\/p>/g, '');
+        htmlBody = htmlBody.replace(/<p class="body"><em><strong><\/strong><\/em><br><\/p>/g, '');
         //h2 instead of all caps paragraphs
         htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
         htmlBody = htmlBody.replace(/<p class="body">ABOUT THE AUTHORS<\/p>/g, '<h2 class="subhead">About the Authors</h2>');
         htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
         htmlBody = htmlBody.replace(/<p class="body">ACKNOWLEDGMENT<\/p>/g, '<h2 class="subhead">Acknowledgment</h2>');
         //discover h2 tags
-        htmlBody = htmlBody.replace(/<p class="body"><strong>(.+)<\/strong><\/p>/g, '<h2 class="subhead">$1</h2>' )
+        htmlBody = htmlBody.replace(/<p class="body"><strong>(.+)<\/strong><\/p>/g, '<h2 class="subhead">$1</h2>' );
+        //detect h2 with <br> newline in the middle
+        htmlBody = htmlBody.replace(/<p class="body"><strong>(.+)<br>(\r\n|\r|\n)(.+)<\/strong><\/p>/g, '<h2 class="subhead">$1$3</h2>' );
+        //detect links and make them live
+        htmlBody = htmlBody.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, '<a target="_blank" href="$1">$1</a>' );
+        //remove empty strong tag glitch
+        htmlBody = htmlBody.replace(/<strong><\/strong>/g, '');
+        
 
         let htmlTitle = `<h1 class="headline">${title}</h1>\n\n`;
         let htmlDeck = '';

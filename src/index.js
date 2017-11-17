@@ -15,6 +15,7 @@ class Container extends React.Component {
       body: ``,
     };
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleStateClear = this.handleStateClear.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,15 @@ class Container extends React.Component {
     });
   }
 
+  handleStateClear(){
+    this.setState({
+      title: ``,
+      deck: ``,
+      author: ``,
+      body: ``,
+    });
+  }
+
 
   render() {
     return (
@@ -39,6 +49,7 @@ class Container extends React.Component {
         <Form
           info={this.state}
           onTextChange={this.handleTextChange}
+          onButtonClick={this.handleStateClear}
         />
         <HTML info={this.state} />
       </div>

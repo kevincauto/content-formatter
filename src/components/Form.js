@@ -1,13 +1,18 @@
 import React from 'react';
 
-export default class CCEDLiveWebinarForm extends React.Component {
+export default class Form extends React.Component {
     constructor(props) {
         super(props);
         this.handleTextChange = this.handleTextChange.bind(this);
+        this.handleStateClear = this.handleStateClear.bind(this);
       }
 
       handleTextChange(e) {
         this.props.onTextChange(e.target.value, e.target.name);
+      }
+
+      handleStateClear(){
+        this.props.onButtonClick();
       }
 
       render(){
@@ -93,6 +98,8 @@ export default class CCEDLiveWebinarForm extends React.Component {
                 className="textarea"
               />
             </div>
+            <button onClick={this.handleStateClear} className="button button2">Clear All</button>
+            <br /><br />
             Test HTML to Paste into Body:<br />
             <textarea value={testingHtml} readOnly={true} className="small-text"/>
           </div>
