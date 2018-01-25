@@ -56,7 +56,9 @@ export default class HTML extends React.Component {
     //h2 instead of all caps paragraphs
     htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
     htmlBody = htmlBody.replace(/<p class="body">ABOUT THE AUTHORS<\/p>/g, '<h2 class="subhead">About the Authors</h2>');
+    htmlBody = htmlBody.replace(/<p class="body">ABOUT THE AUTHOR<\/p>/g, '<h2 class="subhead">About the Author</h2>');
     htmlBody = htmlBody.replace(/<p class="body">REFERENCES<\/p>/g, '<h2 class="subhead">References</h2>');
+    htmlBody = htmlBody.replace(/<p class="body">DISCLOSURE<\/p>/g, '<h2 class="subhead">Disclosure</h2>');
     htmlBody = htmlBody.replace(/<p class="body">ACKNOWLEDGMENT<\/p>/g, '<h2 class="subhead">Acknowledgment</h2>');
     //discover h2 tags
     htmlBody = htmlBody.replace(/<p class="body"><strong>(.+)<\/strong><\/p>/g, '<h2 class="subhead">$1</h2>');
@@ -72,6 +74,11 @@ export default class HTML extends React.Component {
     htmlBody = htmlBody.replace(/”/g, '"');
     htmlBody = htmlBody.replace(/™/g, '<sup>&trade;</sup>');
     htmlBody = htmlBody.replace(/<sup>TM<\/sup>/g, '<sup>&trade;</sup>');
+    htmlBody = htmlBody.replace(/—/g, '-');
+    htmlBody = htmlBody.replace(/’/g, "'");
+
+
+
 
 
 
